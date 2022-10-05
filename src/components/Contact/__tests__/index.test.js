@@ -7,11 +7,21 @@ afterEach(cleanup);
 describe('Contact component', () => {
     //first test 
     it('renders', () => {
-        render(<Contact/>)
+        render(<Contact />)
     })
 
     it('matches smapshot', () => {
-        const { asFragment } = render(<Contact/>);
+        const { asFragment } = render(<Contact />);
         expect(asFragment()).toMatchSnapshot();
     });
+})
+
+it('renders', () => {
+    const { getByTestId } = render(<Contact />)
+    expect(getByTestId('h1tag')).toHaveTextContent('Contact Me')
+})
+
+it('renders', () => {
+    const { getByTestId } = render(<Contact />)
+    expect(getByTestId('button')).toHaveTextContent('Submit')
 })
